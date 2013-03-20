@@ -1,0 +1,28 @@
+resources
+	resource Water
+	resource Grass
+end
+
+rules
+
+	mapRule AddWater
+		rate 10
+		randomTiles true
+		randomTilesPercent 25
+		
+		map Water add 2
+	end
+
+	mapRule CreateGrass
+		rate 7
+		
+		map Water remove 10
+		map Grass add 1
+	end
+
+end
+
+maps
+	map Water color 0x0000FF capacity 100 rules [ AddWater ]
+	map Grass color 0x00FF00 capacity 10 rules [ CreateGrass ]
+end
